@@ -1,0 +1,47 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<List<AnthillaASCore.Models.Anth_Dump>>
+@using System.Collections.Generic
+@{Layout = "_layout-fw.cshtml";}
+
+@section PageBar
+{
+    <nav class="navigation-bar bg-transparent page-bar">
+        <nav class="navigation-bar-content">
+            <div class="element upcase fg-anthilla-green border-2-anthilla-green no-overlay" style="line-height: 0px;">Utility </div>
+            <div class="element-divider"></div>
+            <div class="element upcase fg-anthilla-green border-2-anthilla-green no-overlay" style="line-height: 0px;">
+                <i class="icon-help-2 on-left" style="line-height: 0px;"></i>Whois
+            </div>
+            <div class="element-divider"></div>
+            <div class="element upcase fg-anthilla-green border-2-anthilla-green no-overlay" style="line-height: 0px;">
+                <i class="icon-pop-out on-left" style="line-height: 0px;"></i>Public IP
+            </div>
+            <div class="element-divider"></div>
+            <div class="element upcase fg-anthilla-green border-2-anthilla-green no-overlay" style="line-height: 0px;">
+                <i class="icon-pop-in on-left" style="line-height: 0px;"></i>IP in use
+            </div>
+            <div class="element-divider"></div>
+        </nav>
+    </nav>
+}
+
+@section Dashboard
+{
+
+}
+
+@section MainContent
+{
+    <legend>Whois</legend>
+    <input type="text" />
+    <input class="bg-anthilla-green fg-anthilla-gray upcase" type="button" value="Search" />
+    <br />
+    <legend>Public IP</legend>
+    <br />
+    <legend>IP in use</legend>
+    <br />
+}
+
+@section Scripts
+{
+
+}

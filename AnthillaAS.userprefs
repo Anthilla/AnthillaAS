@@ -1,0 +1,33 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="MonoDebug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AnthillaWebUI/Views/Layout.cshtml">
+    <Files>
+      <File FileName="AnthillaWebUI/Content/Style/anthilla.css" Line="648" Column="14" />
+      <File FileName="AnthillaWebUI/Views/Layout.cshtml" Line="77" Column="34" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="AnthillaLibCore" expanded="True">
+            <Node name="FileManager" expanded="True" />
+            <Node name="Repositories" expanded="True" />
+          </Node>
+          <Node name="AnthillaServer" expanded="True" />
+          <Node name="AnthillaWebUI" expanded="True">
+            <Node name="Content" expanded="True">
+              <Node name="Style" expanded="True" />
+            </Node>
+            <Node name="Modules" expanded="True" />
+            <Node name="Views" expanded="True">
+              <Node name="Layout.cshtml" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -1,0 +1,137 @@
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.clockface {
+  width: 160px;
+  padding: 3px;
+  text-align: center;
+}
+.clockface > div {
+  clear: both;
+  overflow: auto;
+}
+.clockface .outer,
+.clockface .inner {
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  cursor: default;
+}
+.clockface .outer.active,
+.clockface .inner.active{
+  color: #fff;
+}
+
+.clockface .outer {
+  color: gray;
+  font-size: 0.8em;
+}
+.clockface .outer.active {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #5bb75b;
+}
+.clockface .outer.active:active,
+.clockface .outer.active.active,
+.clockface .outer.active.disabled,
+.clockface .outer.active[disabled] {
+  color: #ffffff;
+  background-color: #51a351;
+}
+.clockface .inner.active{
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #006dcc;
+}
+
+.clockface .inner.active:active,
+.clockface .inner.active.active,
+.clockface .inner.active.disabled,
+.clockface .inner.active[disabled] {
+  color: #ffffff;
+  background-color: #0044cc;
+}
+.clockface .inner.active:active,
+.clockface .inner.active.active {
+}
+.clockface .l1 .cell,
+.clockface .l5 .cell {
+  width: 22px;
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
+}
+.clockface .l1 .outer {
+  margin-bottom: 3px;
+}
+.clockface .l5 .outer {
+  margin-top: 3px;
+}
+.clockface .l2 .outer,
+.clockface .l3 .outer,
+.clockface .l4 .outer,
+.clockface .l2 .inner,
+.clockface .l3 .inner,
+.clockface .l4 .inner {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
+  vertical-align: middle;
+}
+.clockface .l2 .left,
+.clockface .l3 .left,
+.clockface .l4 .left {
+  float: left;
+}
+.clockface .l2 .left .outer,
+.clockface .l3 .left .outer,
+.clockface .l4 .left .outer {
+  margin-right: 3px;
+}
+.clockface .l2 .right,
+.clockface .l3 .right,
+.clockface .l4 .right {
+  float: right;
+}
+.clockface .l2 .right .outer,
+.clockface .l3 .right .outer,
+.clockface .l4 .right .outer {
+  margin-left: 3px;
+}
+.clockface .ampm {
+  font-size: 0.8em;
+  text-decoration: none;
+  border-bottom: dashed 1px;
+}
+.clockface .ampm:focus {
+  outline: 0;
+  /* IE6-9 */
+}
