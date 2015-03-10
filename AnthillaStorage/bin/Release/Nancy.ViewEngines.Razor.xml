@@ -483,6 +483,18 @@
             Used to retun text resources
             </summary>
         </member>
+        <member name="P:Nancy.ViewEngines.Razor.NancyRazorViewBase`1.Context">
+            <summary>
+            Gets the current <see cref="T:Nancy.NancyContext"/> instance.
+            </summary>
+            <value>A <see cref="T:Nancy.NancyContext"/> instance.</value>
+        </member>
+        <member name="P:Nancy.ViewEngines.Razor.NancyRazorViewBase`1.Request">
+            <summary>
+            Gets the current <see cref="P:Nancy.ViewEngines.Razor.NancyRazorViewBase`1.Request"/> instance.
+            </summary>
+            <value>A <see cref="P:Nancy.ViewEngines.Razor.NancyRazorViewBase`1.Request"/> instance.</value>
+        </member>
         <member name="M:Nancy.ViewEngines.Razor.NancyRazorErrorView.#ctor(System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Nancy.ViewEngines.Razor.NancyRazorErrorView"/> class.

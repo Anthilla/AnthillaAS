@@ -1,15 +1,13 @@
-﻿using System;
-using Nancy;
+﻿using Nancy;
+using System;
 
-namespace AnthillaStorage
-{
-    public class StorageModule : NancyModule
-    {
+namespace AnthillaStorage {
+
+    public class StorageModule : NancyModule {
+
         public StorageModule()
-            : base("/storage")
-        {
-            Get["/action"] = x =>
-            {
+            : base("/storage") {
+            Get["/action"] = x => {
                 Console.Beep();
                 return View["home"];
             };

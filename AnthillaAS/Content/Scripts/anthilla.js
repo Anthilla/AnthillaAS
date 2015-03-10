@@ -316,104 +316,104 @@ var ItemSelectizer = function () {
     };
 }();
 
-    $('#select-user').selectize({
-        maxItems: 1,
-        valueField: 'alias',
-        labelField: 'alias',
-        searchField: 'alias',
-        create: false,
-        render: { option: ItemSelectizer.renderOptions },
-        remoteUrl: '/rawdata/user',
-        load: ItemSelectizer.loadOptions
-    });
+$('#select-user').selectize({
+    maxItems: 1,
+    valueField: 'alias',
+    labelField: 'alias',
+    searchField: 'alias',
+    create: false,
+    render: { option: ItemSelectizer.renderOptions },
+    remoteUrl: '/rawdata/user',
+    load: ItemSelectizer.loadOptions
+});
 
-    $('#select-user-multi').selectize({
-        maxItems: 1,
-        valueField: 'alias',
-        labelField: 'alias',
-        searchField: 'alias',
-        create: false,
-        render: { option: ItemSelectizer.renderOptions },
-        remoteUrl: '/rawdata/user',
-        load: ItemSelectizer.loadOptions
-    });
+$('#select-user-multi').selectize({
+    maxItems: 1,
+    valueField: 'alias',
+    labelField: 'alias',
+    searchField: 'alias',
+    create: false,
+    render: { option: ItemSelectizer.renderOptions },
+    remoteUrl: '/rawdata/user',
+    load: ItemSelectizer.loadOptions
+});
 
-    $('#select-company').selectize({
-        maxItems: 1,
-        valueField: 'alias',
-        labelField: 'alias',
-        searchField: 'alias',
-        create: false,
-        render: { option: ItemSelectizer.renderOptions },
-        remoteUrl: '/rawdata/company',
-        load: ItemSelectizer.loadOptions
-    });
+$('#select-company').selectize({
+    maxItems: 1,
+    valueField: 'alias',
+    labelField: 'alias',
+    searchField: 'alias',
+    create: false,
+    render: { option: ItemSelectizer.renderOptions },
+    remoteUrl: '/rawdata/company',
+    load: ItemSelectizer.loadOptions
+});
 
-    $('#select-company-multi').selectize({
-        maxItems: false,
-        valueField: 'alias',
-        labelField: 'alias',
-        searchField: 'alias',
-        create: false,
-        render: { option: ItemSelectizer.renderOptions },
-        remoteUrl: '/rawdata/company',
-        load: ItemSelectizer.loadOptions
-    });
+$('#select-company-multi').selectize({
+    maxItems: false,
+    valueField: 'alias',
+    labelField: 'alias',
+    searchField: 'alias',
+    create: false,
+    render: { option: ItemSelectizer.renderOptions },
+    remoteUrl: '/rawdata/company',
+    load: ItemSelectizer.loadOptions
+});
 
-    $('#select-group').selectize({
-        maxItems: false,
-        valueField: 'alias',
-        labelField: 'alias',
-        searchField: 'alias',
-        create: false,
-        render: { option: ItemSelectizer.renderOptions },
-        remoteUrl: '/rawdata/ugroup',
-        load: ItemSelectizer.loadOptions
-    });
+$('#select-group').selectize({
+    maxItems: false,
+    valueField: 'alias',
+    labelField: 'alias',
+    searchField: 'alias',
+    create: false,
+    render: { option: ItemSelectizer.renderOptions },
+    remoteUrl: '/rawdata/ugroup',
+    load: ItemSelectizer.loadOptions
+});
 
-    $('#select-group-mono').selectize({
-        maxItems: 1,
-        valueField: 'alias',
-        labelField: 'alias',
-        searchField: 'alias',
-        create: false,
-        render: { option: ItemSelectizer.renderOptions },
-        remoteUrl: '/rawdata/ugroup',
-        load: ItemSelectizer.loadOptions
-    });
+$('#select-group-mono').selectize({
+    maxItems: 1,
+    valueField: 'alias',
+    labelField: 'alias',
+    searchField: 'alias',
+    create: false,
+    render: { option: ItemSelectizer.renderOptions },
+    remoteUrl: '/rawdata/ugroup',
+    load: ItemSelectizer.loadOptions
+});
 
-    $('#select-funcgrp-mono').selectize({
-        maxItems: false,
-        valueField: 'alias',
-        labelField: 'alias',
-        searchField: 'alias',
-        create: false,
-        render: { option: ItemSelectizer.renderOptions },
-        remoteUrl: '/rawdata/funcgrp',
-        load: ItemSelectizer.loadOptions
-    });
+$('#select-funcgrp-mono').selectize({
+    maxItems: false,
+    valueField: 'alias',
+    labelField: 'alias',
+    searchField: 'alias',
+    create: false,
+    render: { option: ItemSelectizer.renderOptions },
+    remoteUrl: '/rawdata/funcgrp',
+    load: ItemSelectizer.loadOptions
+});
 
-    $('#select-project').selectize({
-        maxItems: false,
-        valueField: 'alias',
-        labelField: 'alias',
-        searchField: 'alias',
-        create: false,
-        render: { option: ItemSelectizer.renderOptions },
-        remoteUrl: '/rawdata/project',
-        load: ItemSelectizer.loadOptions
-    });
+$('#select-project').selectize({
+    maxItems: false,
+    valueField: 'alias',
+    labelField: 'alias',
+    searchField: 'alias',
+    create: false,
+    render: { option: ItemSelectizer.renderOptions },
+    remoteUrl: '/rawdata/project',
+    load: ItemSelectizer.loadOptions
+});
 
-    $('#select-project-mono').selectize({
-        maxItems: 1,
-        valueField: 'alias',
-        labelField: 'alias',
-        searchField: 'alias',
-        create: false,
-        render: { option: ItemSelectizer.renderOptions },
-        remoteUrl: '/rawdata/project',
-        load: ItemSelectizer.loadOptions
-    });
+$('#select-project-mono').selectize({
+    maxItems: 1,
+    valueField: 'alias',
+    labelField: 'alias',
+    searchField: 'alias',
+    create: false,
+    render: { option: ItemSelectizer.renderOptions },
+    remoteUrl: '/rawdata/project',
+    load: ItemSelectizer.loadOptions
+});
 
 var ContactSelectizer = function () {
     return {

@@ -1,77 +1,63 @@
 ﻿using Nancy;
 using Nancy.Security;
 
-namespace AnthillaAS
-{
-    public class FirewallModule : NancyModule
-    {
-        public FirewallModule()
-            : base("/firewall")
-        {
-            this.RequiresAuthentication();
+namespace AnthillaAS {
 
-            Get["/home"] = x =>
-            {
+    public class FirewallModule : NancyModule {
+
+        public FirewallModule()
+            : base("/firewall") {
+            //this.RequiresAuthentication();
+
+            Get["/home"] = x => {
                 return View["page-firewall-home"];
             };
 
-            Get["/manage"] = x =>
-            {
+            Get["/manage"] = x => {
                 return View["page-firewall-mgmt"];
             };
 
-            Get["/util"] = x =>
-            {
+            Get["/util"] = x => {
                 return View["page-firewall-util"];
             };
 
-            Get["/hspot"] = x =>
-            {
+            Get["/hspot"] = x => {
                 return View["page-firewall-hspot"];
             };
 
-            Get["/filter"] = x =>
-            {
+            Get["/filter"] = x => {
                 return View["page-firewall-filter"];
             };
 
-            Get["/mail"] = x =>
-            {
+            Get["/mail"] = x => {
                 return View["page-firewall-mail"];
             };
 
-            Get["/mail/domains"] = x =>
-            {
+            Get["/mail/domains"] = x => {
                 return View["page-firewall-mldmns"];
             };
 
-            Get["/user/acl"] = x =>
-            {
+            Get["/user/acl"] = x => {
                 return View["page-firewall-user"];
             };
 
-            Get["/network"] = x =>
-            {
+            Get["/network"] = x => {
                 return View["page-firewall-net"];
             };
 
-            Get["/network/server"] = x =>
-            {
+            Get["/network/server"] = x => {
                 return View["page-firewall-netsrv"];
             };
 
-            Get["/network/vpn"] = x =>
-            {
+            Get["/network/vpn"] = x => {
                 return View["page-firewall-vpn"];
             };
 
-            Get["/log"] = x =>
-            {
+            Get["/log"] = x => {
                 return View["page-firewall-log"];
             };
 
-            Get["/setup"] = x =>
-            {
+            Get["/setup"] = x => {
                 return View["page-firewall-setup"];
             };
         }
