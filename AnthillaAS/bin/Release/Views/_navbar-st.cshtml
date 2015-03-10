@@ -1,0 +1,26 @@
+<nav id="nav-bar" class="navigation-bar bg-grayDarker" style="padding-left: 15px; padding-right: 20px;">
+    <nav class="navigation-bar-content">
+        <div class="element nav-button no-overlay">Anthilla AS </div>
+
+        <a href="/firewall/home" id="FirewallNavBtn" class="element nav-button no-overlay">
+            <i class="icon-fire on-left" style="line-height: 0px;"></i>Firewall
+        </a>
+        <a href="/storage/home" id="StorageNavBtn" class="element nav-button no-overlay">
+            <i class="icon-database on-left" style="line-height: 0px;"></i>Storage
+        </a>
+
+        <div id="clock" class="element place-right no-overlay"></div>
+        <script type="text/ecmascript">
+            $("#clock").clock({ "format": "24", "calendar": "false", "seconds": "false" });
+        </script>
+        <a class="element place-right nav-button no-overlay" href="~/logout" id="LogOut">
+            <i class="icon-exit" style="line-height: 5px;"></i>
+        </a>
+        <a class="element place-right nav-button no-overlay" href="/storage/setup">
+            <i class="icon-wrench" style="line-height: 5px;"></i>
+        </a>
+        <a class="element place-right nav-button no-overlay" href="/storage/log">
+            <i class="icon-list" style="line-height: 5px;"></i>
+        </a>
+    </nav>
+</nav>
