@@ -1,14 +1,39 @@
-﻿using AnthillaAS.ViewsHelper;
-using AnthillaCore.Logging;
-using AnthillaCore.Security;
+﻿///-------------------------------------------------------------------------------------
+///     Copyright (c) 2014, Anthilla S.r.l. (http://www.anthilla.com)
+///     All rights reserved.
+///
+///     Redistribution and use in source and binary forms, with or without
+///     modification, are permitted provided that the following conditions are met:
+///         * Redistributions of source code must retain the above copyright
+///           notice, this list of conditions and the following disclaimer.
+///         * Redistributions in binary form must reproduce the above copyright
+///           notice, this list of conditions and the following disclaimer in the
+///           documentation and/or other materials provided with the distribution.
+///         * Neither the name of the Anthilla S.r.l. nor the
+///           names of its contributors may be used to endorse or promote products
+///           derived from this software without specific prior written permission.
+///
+///     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+///     ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+///     WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+///     DISCLAIMED. IN NO EVENT SHALL ANTHILLA S.R.L. BE LIABLE FOR ANY
+///     DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+///     (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+///     LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+///     ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+///     (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+///     SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+///
+///     20150413
+///-------------------------------------------------------------------------------------
+
+using AnthillaAS.Auth;
 using Nancy;
 using Nancy.Authentication.Forms;
 using Nancy.Cookies;
 using Nancy.Extensions;
-using Newtonsoft.Json;
 using System;
 using System.Dynamic;
-using System.Linq;
 using System.Net.Http;
 
 namespace AnthillaAS.Modules {
@@ -25,16 +50,12 @@ namespace AnthillaAS.Modules {
 
         public LoginModule() {
             Get["/login"] = x => {
-                LogRequest.Trace(this.Request);
                 dynamic model = new ExpandoObject();
                 model.Errored = this.Request.Query.error.HasValue;
-                ViewBag.Title = "Welcome to Anthilla";
-                ViewBag.Copyright = "© 2013 - " + DateTime.Now.ToString("yyyy") + " Anthilla S.r.l.";
                 return View["login", model];
             };
 
             Post["/login"] = x => {
-                LogRequest.Trace(this.Request);
                 string username = (string)this.Request.Form.Username;
                 string password = (string)this.Request.Form.Password;
 
@@ -43,59 +64,22 @@ namespace AnthillaAS.Modules {
                     expiry = DateTime.Now.AddDays(3);
                 }
 
-                string pwdHashed;
-                string clientGuid;
-                if (password == "admin") {
-                    pwdHashed = "admin";
-                    clientGuid = "00000000-0000-0000-0000-000000000500";
-                    NancyCookie cookie = new NancyCookie("session", clientGuid);
-                    return this.LoginAndRedirect(Guid.Parse(clientGuid), expiry).WithCookie(cookie);
+                Guid? validationGuid = UserDatabase.ValidateUser(username, password);
+
+                if (validationGuid == null) {
+                    return this.Context.GetRedirect("~/login?error=true&Username=" + (string)this.Request.Form.Username);
                 }
                 else {
-                    pwdHashed = CoreSecurity.AnthillaHash(password);
-                    Guid? validationGuid = AnthillaCore.UserDatabase.ValidateUser(username, CoreSecurity.AnthillaHash(password));
-
-                    Tuple<bool, string> shelper = LoginHelper.ConfirmStorageAuthentication(username, pwdHashed);
-                    Tuple<bool, string> fhelper = LoginHelper.ConfirmFirewallAuthentication(username, pwdHashed);
-
-                    if (shelper.Item1 == false || fhelper.Item1 == false || validationGuid == null) {
-                        return this.Context.GetRedirect("~/login?error=true&Username=" + (string)this.Request.Form.Username);
-                    }
-                    else {
-                        string g;
-                        if (shelper.Item2 == null) {
-                            g = fhelper.Item2;
-                        }
-                        else if (fhelper.Item2 == null) {
-                            g = shelper.Item2;
-                        }
-                        else {
-                            g = "";
-                        }
-                        clientGuid = g;
-                        NancyCookie cookie = new NancyCookie("session", clientGuid);
-                        return this.LoginAndRedirect(validationGuid.ToGuid(), expiry).WithCookie(cookie);
-                    }
+                    NancyCookie cookie = new NancyCookie("session", validationGuid.ToGuid().ToString());
+                    return this.LoginAndRedirect(validationGuid.ToGuid(), expiry).WithCookie(cookie);
                 }
             };
 
             Get["/logout"] = x => {
                 var request = this.Request;
-                LogRequest.Trace(request);
                 var cookies = request.Cookies;
                 cookies.Clear();
                 return this.LogoutAndRedirect("~/");
-            };
-
-            Get["/cookievalue"] = x => {
-                LogRequest.Trace(this.Request);
-                Request request = this.Request;
-                var cookies = request.Cookies;
-                string value = (from cookie in cookies
-                                where cookie.Key == "session"
-                                select cookie.Value).FirstOrDefault();
-                string json = JsonConvert.SerializeObject(value);
-                return json;
             };
         }
     }

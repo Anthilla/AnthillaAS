@@ -1,4 +1,4 @@
-﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<List<AnthillaCore.Models.Anth_Dump>>
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
 @using System.Collections.Generic
 @{Layout = "_layout-fw.cshtml";}
 
@@ -6,20 +6,20 @@
 {
     <nav class="navigation-bar page bg-white fg-anthilla-blue" style="padding-top: 10px; border-bottom: 4px solid #548ED4;">
         <nav class="navigation-bar-content">
-            <div class="element upcase bold no-overlay fg-black upcase" style="line-height: 0px; margin-left: 20px !important;"> Filter </div>
+            <div class="element upcase bold no-overlay fg-black upcase" style="line-height: 0px; margin-left: 20px !important;">Filter </div>
 
             <a href="#anchorNavg" class="element upcase no-overlay anchor" style="line-height: 0px;">
                 <i class="icon-compass-3 on-left" style="line-height: 0px;"></i>Navigation Groups
-             </a>
+            </a>
             <a href="#anchorGrpm" class="element upcase no-overlay anchor" style="line-height: 0px;">
                 <i class="icon-radio-unchecked on-left" style="line-height: 0px;"></i>Group Membership
-             </a>
+            </a>
             <a href="#anchorTacl" class="element upcase no-overlay anchor" style="line-height: 0px;">
                 <i class="icon-list on-left" style="line-height: 0px;"></i>Temporal Access Lists
-             </a>
+            </a>
             <a href="#anchorMss" class="element upcase no-overlay anchor" style="line-height: 0px;">
                 <i class="icon-key on-left" style="line-height: 0px;"></i>Authentication Management
-             </a> class="icon-stats-2 on-left" style="line-height: 0px;"></i> Mail Server Stats
+            </a>class="icon-stats-2 on-left" style="line-height: 0px;"></i> Mail Server Stats
         </nav>
     </nav>
 }
